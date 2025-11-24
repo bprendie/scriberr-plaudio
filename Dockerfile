@@ -30,8 +30,8 @@ RUN go mod download
 # Copy source
 COPY . .
 
-# Copy built UI into embed path
-RUN rm -rf internal/web/dist && mkdir -p internal/web
+# Copy built UI into embed path and ensure dist exists for embed directive
+RUN mkdir -p internal/web/dist
 COPY --from=ui-builder /web/frontend/dist internal/web/dist
 
 # Build binary (arch matches builder platform)
