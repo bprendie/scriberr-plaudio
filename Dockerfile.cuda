@@ -36,7 +36,7 @@ COPY --from=ui-builder /web/frontend/dist internal/web/dist
 
 # Build binary (arch matches builder platform)
 RUN CGO_ENABLED=0 \
-  go build -o /out/scriberr cmd/server/main.go
+  go build -o /out/scriberr ./cmd/server
 
 
 ########################
